@@ -67,28 +67,28 @@ public class Server {
 
 
         //REST Endpoints
-        get("/api/clubs", (request, response) -> {
+        get("/api/clubs", "application/json", (request, response) -> {
 
             response.type("application/json");
 
             return DBC.getAllClubs();
         }, jtl);
 
-        get("/api/club/:clubID",  (request, response) -> {
+        get("/api/club/:clubID", "application/json", (request, response) -> {
 
             response.type("application/json");
 
             return DBC.getClub(Integer.parseInt(request.params(":clubID")));
         }, jtl);
 
-        get("/api/events", (request, response) -> {
+        get("/api/events", "application/json", (request, response) -> {
 
             response.type("application/json");
 
             return DBC.getAllEvents();
         }, jtl);
 
-        get("/api/event/:eventID", (request, response) -> {
+        get("/api/event/:eventID", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -102,14 +102,14 @@ public class Server {
             return DBC.getAllUsers();
         }, jtl);
 
-        get("/api/club/:clubID/users", (request, response) -> {
+        get("/api/club/:clubID/users", "application/json", (request, response) -> {
 
             response.type("application/json");
 
             return DBC.queryUsersForClub(request.params(":clubID"));
         }, jtl);
 
-        post("/api/new/user", (request, response) -> {
+        post("/api/new/user", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -129,7 +129,7 @@ public class Server {
 
         }, jtl);
 
-        get("/api/rss", (request, response) -> {
+        get("/api/rss", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -137,7 +137,7 @@ public class Server {
         }, jtl);
 
         //Protected Routes (Must be logged in)
-        post("/api/login", (request, response) -> {
+        post("/api/login", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -153,10 +153,10 @@ public class Server {
             }
 
             return result;
-        }, jtl);
+        },  jtl);
 
 
-        post("/api/user/changePassword", (request, response) -> {
+        post("/api/user/changePassword", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -175,7 +175,7 @@ public class Server {
             return result;
         }, jtl);
 
-        get("/api/user/clubs", (request, response) -> {
+        get("/api/user/clubs", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -183,7 +183,7 @@ public class Server {
             return DBC.queryClubsForUser(user);
         }, jtl);
 
-        post("/api/user/logout", (request, response) -> {
+        post("/api/user/logout", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -192,7 +192,7 @@ public class Server {
             return "Logout Successful";
         }, jtl);
 
-        get("/api/user", (request, response) -> {
+        get("/api/user", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -203,7 +203,7 @@ public class Server {
             return result;
         }, jtl);
 
-        post("/api/user/new/club", (request, response) -> {
+        post("/api/user/new/club", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -226,7 +226,7 @@ public class Server {
             return result;
         }, jtl);
 
-        post("/api/user/new/event", (request, response) -> {
+        post("/api/user/new/event", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -248,7 +248,7 @@ public class Server {
             return result;
         }, jtl);
 
-        post("/api/user/linkUserClub/:club_id", (request, response) -> {
+        post("/api/user/linkUserClub/:club_id", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -259,7 +259,7 @@ public class Server {
             return result;
         }, jtl);
 
-        post("/api/user/linkEventClub/:event_id/:club_id", (request, response) -> {
+        post("/api/user/linkEventClub/:event_id/:club_id", "application/json", (request, response) -> {
 
             response.type("application/json");
 
@@ -270,7 +270,7 @@ public class Server {
             return result;
         }, jtl);
 
-        get("/api/calendar/day/:day", (request, response) -> {
+        get("/api/calendar/day/:day", "application/json", (request, response) -> {
 
             response.type("application/json");
 
