@@ -1,7 +1,7 @@
 target
 
 
-
+src/main/java/configs/
 # Intellij Stuff
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 *.iml
