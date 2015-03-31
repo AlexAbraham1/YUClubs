@@ -27,7 +27,7 @@ public class Server {
 
     public static void main(String[] args) {
 
-        port(80);
+        port(8080);
 
         FreeMarkerTemplateEngine ftl = new FreeMarkerTemplateEngine();
         JSONTemplateEngine jtl = new JSONTemplateEngine();
