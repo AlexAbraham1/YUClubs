@@ -1,6 +1,4 @@
-SparkJavaTest
+YU Clubs
 =============
 
-Simple test code for the SparkJava web framework
-
-http://www.sparkjava.com
+Java backend server that I developed during the 2015 YU Hackathon. It connects to a MySQL database and creates users, clubs, club events, and many to many relationships between them.
