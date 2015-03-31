@@ -27,7 +27,16 @@ public class Server {
 
     public static void main(String[] args) {
 
-        port(8080);
+        //Heroku assigns different port each time, hence reading it from process.
+        ProcessBuilder process = new ProcessBuilder();
+        Integer portNumber;
+        if (process.environment().get("PORT") != null) {
+            portNumber = Integer.parseInt(process.environment().get("PORT"));
+        } else {
+            portNumber = 8080;
+        }
+
+        port(portNumber);
 
         FreeMarkerTemplateEngine ftl = new FreeMarkerTemplateEngine();
         JSONTemplateEngine jtl = new JSONTemplateEngine();
